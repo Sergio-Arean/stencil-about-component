@@ -10,6 +10,7 @@ export namespace Components {
         "backdropBackground": string;
         "closeModal": () => Promise<void>;
         "fontColor": string;
+        "fontFamily": string;
         "iconUrl": string;
         "modalBackground": string;
         "openModal": () => Promise<void>;
@@ -52,6 +53,7 @@ declare namespace LocalJSX {
     interface AboutComponent {
         "backdropBackground"?: string;
         "fontColor"?: string;
+        "fontFamily"?: string;
         "iconUrl"?: string;
         "modalBackground"?: string;
         "technology"?: string;

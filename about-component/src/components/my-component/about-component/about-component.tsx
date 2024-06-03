@@ -17,6 +17,7 @@ export class MyComponent {
     @Prop() backdropBackground: string = '#E6E6E6';
     @Prop() modalBackground: string = '#4C0863';
     @Prop() fontColor: string = 'white';
+    @Prop() fontFamily: string = 'Poppins';
 
     @Method()
     openModal() {
@@ -31,12 +32,17 @@ export class MyComponent {
     render() {
         const backdropStyle = {
             backgroundColor: this.backdropBackground,
+            fontFamily : this.fontFamily
           };
       
           const modalStyle = {
             backgroundColor: this.modalBackground,
             color: this.fontColor,
           };
+
+          const btnStyle = {
+            fontFamily : this.fontFamily
+          }
 
         return (
             <div class={{ backdrop: true, hidden: !this.isVisible }} style={backdropStyle}>
@@ -56,7 +62,7 @@ export class MyComponent {
                         
                     </p>
 
-                    <button class="confirm-btn" onClick={() => this.closeModal()}> Got it ✔️</button>
+                    <button class="confirm-btn" onClick={() => this.closeModal()}  style={btnStyle}> Got it ✔️</button>
                 </section>
             </div>
         )
