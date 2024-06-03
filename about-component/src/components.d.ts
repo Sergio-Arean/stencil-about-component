@@ -16,6 +16,8 @@ export namespace Components {
         "openModal": () => Promise<void>;
         "technology": string;
     }
+    interface LoaderComponent {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -38,6 +40,12 @@ declare global {
         prototype: HTMLAboutComponentElement;
         new (): HTMLAboutComponentElement;
     };
+    interface HTMLLoaderComponentElement extends Components.LoaderComponent, HTMLStencilElement {
+    }
+    var HTMLLoaderComponentElement: {
+        prototype: HTMLLoaderComponentElement;
+        new (): HTMLLoaderComponentElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -46,6 +54,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "about-component": HTMLAboutComponentElement;
+        "loader-component": HTMLLoaderComponentElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -57,6 +66,8 @@ declare namespace LocalJSX {
         "iconUrl"?: string;
         "modalBackground"?: string;
         "technology"?: string;
+    }
+    interface LoaderComponent {
     }
     interface MyComponent {
         /**
@@ -74,6 +85,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "about-component": AboutComponent;
+        "loader-component": LoaderComponent;
         "my-component": MyComponent;
     }
 }
@@ -82,6 +94,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "about-component": LocalJSX.AboutComponent & JSXBase.HTMLAttributes<HTMLAboutComponentElement>;
+            "loader-component": LocalJSX.LoaderComponent & JSXBase.HTMLAttributes<HTMLLoaderComponentElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
