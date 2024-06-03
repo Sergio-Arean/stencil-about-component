@@ -8,9 +8,15 @@ import './about-component.css';
     shadow: true,
 })
 export class MyComponent {
+    //data
     @Prop() technology: string;
     @Prop() iconUrl: string;
     @State() isVisible: boolean = false;
+
+    //styles can be set from outside
+    @Prop() backdropBackground: string = '#E6E6E6';
+    @Prop() modalBackground: string = '#4C0863';
+    @Prop() fontColor: string = 'white';
 
     @Method()
     openModal() {
@@ -23,9 +29,18 @@ export class MyComponent {
     }
 
     render() {
+        const backdropStyle = {
+            backgroundColor: this.backdropBackground,
+          };
+      
+          const modalStyle = {
+            backgroundColor: this.modalBackground,
+            color: this.fontColor,
+          };
+
         return (
-            <div class={{ backdrop: true, hidden: !this.isVisible }}>
-                <section class="content">
+            <div class={{ backdrop: true, hidden: !this.isVisible }} style={backdropStyle}>
+                <section class="content" style={modalStyle}>
                     <div class="title-container">
                         <h1 class="title">{this.technology} Projects</h1>
                         <div class="logo-container">

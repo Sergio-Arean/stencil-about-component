@@ -7,8 +7,11 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AboutComponent {
+        "backdropBackground": string;
         "closeModal": () => Promise<void>;
+        "fontColor": string;
         "iconUrl": string;
+        "modalBackground": string;
         "openModal": () => Promise<void>;
         "technology": string;
     }
@@ -47,7 +50,10 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AboutComponent {
+        "backdropBackground"?: string;
+        "fontColor"?: string;
         "iconUrl"?: string;
+        "modalBackground"?: string;
         "technology"?: string;
     }
     interface MyComponent {
