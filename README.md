@@ -1,0 +1,1 @@
+# stencil-about-component
