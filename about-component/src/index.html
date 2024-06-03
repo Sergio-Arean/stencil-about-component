@@ -14,13 +14,25 @@
   <body>
     <!-- <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component> -->
 
-    <about-component></about-component>
+    <about-component id="angular-modal-component" technology="Angular" icon-url="../assets/angular-logo.png"></about-component>
 
-    <button id="open-modal-btn">Open Modal</button>
+    <about-component id="react-modal-component" technology="React" icon-url="../assets/react-icon.png"></about-component>
+
+    <button id="open-angular-modal">Open Angular Modal</button>
+    <button id="open-react-modal">Open React Modal</button>
+
+    <!-- image test
+    <img src="../assets/react-icon.png" alt=""> -->
 
     <script>
-      document.getElementById('open-modal-btn').addEventListener('click',()=>{
-        const aboutModal = document.querySelector('about-component');
+      document.getElementById('open-angular-modal').addEventListener('click',()=>{
+        const aboutModal = document.querySelector('#angular-modal-component');
+        aboutModal.openModal();
+      });
+
+
+      document.getElementById('open-react-modal').addEventListener('click',()=>{
+        const aboutModal = document.querySelector('#react-modal-component');
         aboutModal.openModal();
       });
     </script>

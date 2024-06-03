@@ -3,39 +3,47 @@ import './about-component.css';
 // import { format } from '../../utils/utils';
 
 @Component({
-  tag: 'about-component',
-  styleUrl: 'about-component.css',
-  shadow: true,
+    tag: 'about-component',
+    styleUrl: 'about-component.css',
+    shadow: true,
 })
 export class MyComponent {
-  @State() isVisible:boolean = true;
+    @Prop() technology: string;
+    @Prop() iconUrl: string;
+    @State() isVisible: boolean = false;
 
-  @Method()
-  openModal() {
-    this.isVisible = true;
-  }
-  
-  @Method()
-  closeModal() {
-    this.isVisible = false;
-  }
+    @Method()
+    openModal() {
+        this.isVisible = true;
+    }
 
-  render() {
-    return (
-    <div class={{backdrop: true, hidden: !this.isVisible}}>
-      <section class="content">
-        <h1 class="title">"Title" Projects</h1>
-        <p class="description">
-        This project is a mockup created solely for the purpose of showcasing my web development skills. All the information and data presented here are entirely fictitious and are not intended to represent real-world facts or scenarios.
+    @Method()
+    closeModal() {
+        this.isVisible = false;
+    }
 
-This mock project is designed to provide a tangible example of my ability to build and design web applications. It serves as a portfolio piece, demonstrating the techniques and practices I employ in my work.
+    render() {
+        return (
+            <div class={{ backdrop: true, hidden: !this.isVisible }}>
+                <section class="content">
+                    <div class="title-container">
+                        <h1 class="title">{this.technology} Projects</h1>
+                        <div class="logo-container">
+                            <img src={this.iconUrl} class="tech-logo" alt="" />
+                        </div>
 
-Thank you for your understanding.
-        </p>
+                    </div>
+                    <p class="description">
+                        This project is a mockup created solely for the purpose of showcasing my web development skills using {this.technology}. All the information and data presented here are entirely fictitious and are not intended to represent real-world facts or scenarios.
 
-        <button class="confirm-btn" onClick={()=>this.closeModal()}> Got it ✔️</button>
-      </section>
-    </div>
-    )
-  }
+                        This mock project is designed to provide a tangible example of my ability to build and design web applications. It serves as a portfolio piece, demonstrating the techniques and practices I employ in my work.
+
+                        
+                    </p>
+
+                    <button class="confirm-btn" onClick={() => this.closeModal()}> Got it ✔️</button>
+                </section>
+            </div>
+        )
+    }
 }

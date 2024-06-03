@@ -8,7 +8,9 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AboutComponent {
         "closeModal": () => Promise<void>;
+        "iconUrl": string;
         "openModal": () => Promise<void>;
+        "technology": string;
     }
     interface MyComponent {
         /**
@@ -45,6 +47,8 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AboutComponent {
+        "iconUrl"?: string;
+        "technology"?: string;
     }
     interface MyComponent {
         /**

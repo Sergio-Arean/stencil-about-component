@@ -7,9 +7,6 @@
     font-family: "Poppins";
 }
 
-:host {
-
-  }
 
 
 .backdrop {
@@ -47,9 +44,27 @@
 
   }
 
+  .title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
   .title {
     margin-bottom: .5rem;
   }
+
+
+  .logo-container {
+    width: 30px;
+    margin-inline: .5rem;
+  }
+  .tech-logo {
+    width: 100%;
+  }
+
+  
 
   .description {
     text-align: center;
