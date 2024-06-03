@@ -1,4 +1,4 @@
-import { Component,State,h } from '@stencil/core';
+import { Component,Prop,State,h } from '@stencil/core';
 import './loader-component.css';
 
 
@@ -8,21 +8,38 @@ import './loader-component.css';
     shadow: true,
 })
 export class MyComponent {
+    @Prop() firstText:string = '';
+    @Prop() secondText:string = '';
+    @Prop() thirdText:string = '';
+    @Prop() interval:number = 2000;
 
     @State() currentTextDisplayed:string;
-    @State() loadingTexts:string[] = ['Searching articles...','Your reading adventure is about to begin!',''];
+    @State() loadingTexts:string[] = [];
 
 
     componentDidLoad() {
+        this.manageInputTexts();
+        this.displayTextBySeconds();
+    }
+
+    manageInputTexts(){
+        this.loadingTexts.push(this.firstText);
+        this.loadingTexts.push(this.secondText);
+        this.loadingTexts.push(this.thirdText);
+        this.loadingTexts.push('');
+
+
+    }
+
+    displayTextBySeconds() : void {
         let totalDelay = 0;
-        const delayInterval = 2000;
     
         this.loadingTexts.forEach((text) => {
           setTimeout(() => {
             this.currentTextDisplayed = text;
           }, totalDelay);
     
-          totalDelay += delayInterval;
+          totalDelay += this.interval;
         });
     }
 

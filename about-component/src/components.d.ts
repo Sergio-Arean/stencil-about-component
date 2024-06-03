@@ -17,6 +17,10 @@ export namespace Components {
         "technology": string;
     }
     interface LoaderComponent {
+        "firstText": string;
+        "interval": number;
+        "secondText": string;
+        "thirdText": string;
     }
     interface MyComponent {
         /**
@@ -68,6 +72,10 @@ declare namespace LocalJSX {
         "technology"?: string;
     }
     interface LoaderComponent {
+        "firstText"?: string;
+        "interval"?: number;
+        "secondText"?: string;
+        "thirdText"?: string;
     }
     interface MyComponent {
         /**
